@@ -1005,15 +1005,18 @@ section[id]{ scroll-margin-top: 88px; }
 <script>
   // Samakan Konfigurasi Firebase Anda
   const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    databaseURL: "https://YOUR_PROJECT_ID-default-rtdb.firebaseio.com",
-    projectId: "YOUR_PROJECT_ID",
-    // ... isi sisanya sesuai Firebase milikmu
-  };
+  apiKey: "AIzaSyBMToZ28pOnV9NExInl6by0u8Zjs_ZROvo",
+  authDomain: "web2-9c866.firebaseapp.com",
+  projectId: "web2-9c866",
+  storageBucket: "web2-9c866.firebasestorage.app",
+  messagingSenderId: "824408412467",
+  appId: "1:824408412467:web:8dd3c323f83603f6176e46",
+  measurementId: "G-T4RBF95LMF"
+};
 
-  firebase.initializeApp(firebaseConfig);
-  const database = firebase.database();
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
   // Ambil & Tampilkan Data Buku ke Halaman Depan
   database.ref('buku').on('value', (snapshot) => {

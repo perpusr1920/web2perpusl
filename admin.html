@@ -114,18 +114,18 @@
 <script>
   // PENTING: Ganti dengan konfigurasi Firebase Anda sendiri
   const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    databaseURL: "https://YOUR_PROJECT_ID-default-rtdb.firebaseio.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
-  };
+  apiKey: "AIzaSyBMToZ28pOnV9NExInl6by0u8Zjs_ZROvo",
+  authDomain: "web2-9c866.firebaseapp.com",
+  projectId: "web2-9c866",
+  storageBucket: "web2-9c866.firebasestorage.app",
+  messagingSenderId: "824408412467",
+  appId: "1:824408412467:web:8dd3c323f83603f6176e46",
+  measurementId: "G-T4RBF95LMF"
+};
 
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-  const database = firebase.database();
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
   const loginArea = document.getElementById('login-area');
   const adminArea = document.getElementById('admin-area');
