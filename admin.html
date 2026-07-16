@@ -112,20 +112,21 @@
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
 <script>
-  // PENTING: Ganti dengan konfigurasi Firebase Anda sendiri
+  // Konfigurasi Firebase Anda
   const firebaseConfig = {
-  apiKey: "AIzaSyBMToZ28pOnV9NExInl6by0u8Zjs_ZROvo",
-  authDomain: "web2-9c866.firebaseapp.com",
-  projectId: "web2-9c866",
-  storageBucket: "web2-9c866.firebasestorage.app",
-  messagingSenderId: "824408412467",
-  appId: "1:824408412467:web:8dd3c323f83603f6176e46",
-  measurementId: "G-T4RBF95LMF"
-};
+    apiKey: "AIzaSyBMToZ28pOnV9NExInl6by0u8Zjs_ZROvo",
+    authDomain: "web2-9c866.firebaseapp.com",
+    projectId: "web2-9c866",
+    storageBucket: "web2-9c866.firebasestorage.app",
+    messagingSenderId: "824408412467",
+    appId: "1:824408412467:web:8dd3c323f83603f6176e46",
+    measurementId: "G-T4RBF95LMF"
+  };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+  // Inisialisasi Firebase menggunakan metode yang benar (Compat Mode)
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const database = firebase.database();
 
   const loginArea = document.getElementById('login-area');
   const adminArea = document.getElementById('admin-area');
@@ -152,7 +153,7 @@ const analytics = getAnalytics(app);
 
     auth.signInWithEmailAndPassword(email, pass).catch(error => {
       loginError.style.display = 'block';
-      console.error(error);
+      console.error("Login Error:", error);
     });
   });
 
@@ -183,6 +184,8 @@ const analytics = getAnalytics(app);
       document.getElementById('adminSuccess').classList.add('show');
       adminForm.reset();
       setTimeout(() => { document.getElementById('adminSuccess').classList.remove('show'); }, 3000);
+    }).catch(err => {
+      alert("Gagal menyimpan data: " + err.message);
     });
   });
 </script>
