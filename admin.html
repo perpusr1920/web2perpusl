@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel — Perpus SKL</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#1B2430; --paper:#F3EEE3; --paper-dim:#E8E0CE; --paper-line:#D8CDB3;
+    --brass:#BE8A3D; --forest:#2F4A3D; --charcoal:#232323; --cream-text:#EDE6D6;
+  }
+  body { background: var(--paper); color: var(--charcoal); font-family: 'Inter', sans-serif; padding: 40px 20px; }
+  .wrap { max-width: 700px; margin: 0 auto; }
+  h2 { font-family: 'Fraunces', serif; color: var(--ink); margin-bottom: 24px; }
+  .form-card { background: var(--paper-dim); border: 1px solid var(--paper-line); border-radius: 4px; padding: 30px; margin-bottom: 20px; }
+  .field { margin-bottom: 20px; }
+  .field label { display: block; font-size: 0.78rem; text-transform: uppercase; color: #5B5648; margin-bottom: 8px; font-weight: 600; }
+  input, select, textarea { width: 100%; border: 1px solid var(--paper-line); background: var(--paper); border-radius: 3px; padding: 12px; font-size: 0.92rem; box-sizing: border-box; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--brass); }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .submit-btn { background: var(--forest); color: var(--cream-text); border: none; font-weight: 700; padding: 14px 30px; border-radius: 3px; cursor: pointer; }
+  .submit-btn:hover { background: #3B5F4C; }
+  .logout-btn { background: #8B3A3A; color: white; border: none; padding: 8px 16px; border-radius: 3px; cursor: pointer; margin-bottom: 20px; }
+  .form-success { display: none; background: var(--forest); color: var(--cream-text); padding: 12px; border-radius: 3px; margin-top: 15px; }
+  .form-success.show { display: block; }
+  .error-msg { color: #8B3A3A; font-size: 0.85rem; margin-top: 5px; display: none; }
+  
+  /* Sembunyikan panel admin sebelum login */
+  #login-area { display: block; }
+  #admin-area { display: none; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div id="login-area">
+    <h2>Login Admin Perpus SKL</h2>
+    <form class="form-card" id="loginForm">
+      <div class="field">
+        <label for="login-email">Email Admin</label>
+        <input type="email" id="login-email" required placeholder="admin@perpusskl.id">
+      </div>
+      <div class="field">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" required placeholder="••••••••">
+        <div class="error-msg" id="login-error">Email atau password salah.</div>
+      </div>
+      <button type="submit" class="submit-btn">Masuk Ke Panel</button>
+    </form>
+  </div>
+
+  <div id="admin-area">
+    <button class="logout-btn" id="logoutBtn">Keluar Kelola</button>
+    <h2>Panel Kontrol Koleksi Buku</h2>
+    
+    <form class="form-card" id="adminBookForm">
+      <div class="field-row">
+        <div class="field">
+          <label for="admin-ddc">Kelompok DDC</label>
+          <select id="admin-ddc" required>
+            <option value="000">000 - Karya Umum</option>
+            <option value="100">100 - Filsafat</option>
+            <option value="200">200 - Agama</option>
+            <option value="300">300 - Ilmu Sosial</option>
+            <option value="400">400 - Bahasa</option>
+            <option value="500">500 - Sains Murni</option>
+            <option value="600">600 - Teknologi</option>
+            <option value="700">700 - Seni & Rekreasi</option>
+            <option value="800">800 - Sastra</option>
+            <option value="900">900 - Sejarah</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="admin-spesifik">Nomor DDC Spesifik</label>
+          <input type="text" id="admin-spesifik" placeholder="Misal: 813" required>
+        </div>
+      </div>
+      
+      <div class="field-row">
+        <div class="field">
+          <label for="admin-judul">Judul Buku</label>
+          <input type="text" id="admin-judul" required>
+        </div>
+        <div class="field">
+          <label for="admin-penulis">Penulis</label>
+          <input type="text" id="admin-penulis" required>
+        </div>
+      </div>
+      
+      <div class="field">
+        <label for="admin-deskripsi">Deskripsi Singkat</label>
+        <textarea id="admin-deskripsi" rows="3" required></textarea>
+      </div>
+      
+      <div class="field">
+        <label for="admin-status">Status</label>
+        <select id="admin-status">
+          <option value="Tersedia">Tersedia</option>
+          <option value="Dipinjam">Dipinjam</option>
+        </select>
+      </div>
+      
+      <button type="submit" class="submit-btn">Simpan ke Firebase</button>
+      <div class="form-success" id="adminSuccess">Buku berhasil dimasukkan ke katalog!</div>
+    </form>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+
+<script>
+  // PENTING: Ganti dengan konfigurasi Firebase Anda sendiri
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    databaseURL: "https://YOUR_PROJECT_ID-default-rtdb.firebaseio.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT_ID.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const database = firebase.database();
+
+  const loginArea = document.getElementById('login-area');
+  const adminArea = document.getElementById('admin-area');
+  const loginForm = document.getElementById('loginForm');
+  const loginError = document.getElementById('login-error');
+
+  // Cek Status Login Otomatis
+  auth.onAuthStateChanged(user => {
+    if (user) {
+      loginArea.style.display = 'none';
+      adminArea.style.display = 'block';
+    } else {
+      loginArea.style.display = 'block';
+      adminArea.style.display = 'none';
+    }
+  });
+
+  // Proses Login
+  loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    loginError.style.display = 'none';
+    const email = document.getElementById('login-email').value;
+    const pass = document.getElementById('login-password').value;
+
+    auth.signInWithEmailAndPassword(email, pass).catch(error => {
+      loginError.style.display = 'block';
+      console.error(error);
+    });
+  });
+
+  // Proses Logout
+  document.getElementById('logoutBtn').addEventListener('click', () => {
+    auth.signOut();
+  });
+
+  // Proses Simpan Data Buku
+  const adminForm = document.getElementById('adminBookForm');
+  adminForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const ddcKelompok = document.getElementById('admin-ddc').value;
+    const ddcSpesifik = document.getElementById('admin-spesifik').value;
+    const judul = document.getElementById('admin-judul').value;
+    const penulis = document.getElementById('admin-penulis').value;
+    const deskripsi = document.getElementById('admin-deskripsi').value;
+    const status = document.getElementById('admin-status').value;
+
+    database.ref('buku/' + ddcKelompok).push().set({
+      ddc: ddcSpesifik,
+      judul: judul,
+      penulis: penulis,
+      deskripsi: deskripsi,
+      status: status
+    }).then(() => {
+      document.getElementById('adminSuccess').classList.add('show');
+      adminForm.reset();
+      setTimeout(() => { document.getElementById('adminSuccess').classList.remove('show'); }, 3000);
+    });
+  });
+</script>
+</body>
+</html>
