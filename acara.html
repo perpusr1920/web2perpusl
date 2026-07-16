@@ -11,27 +11,27 @@
 </head>
 <body>
 
-<header class="site scrolled" id="siteHeader">
-  <div class="wrap nav-inner">
-    <a href="index.html" class="brand"><span class="mark">PN</span>Pustaka Nusa</a>
-    <nav class="links">
+<header>
+  <div class="header-container">
+    <div class="logo-area">
+      <!-- Logo diganti ke gambar baru dan teks diubah menjadi Perpustakaan Sekolah Kristen Lentera -->
+      <img src="logo-lentera.jpg" alt="Logo Perpustakaan Sekolah Kristen Lentera" class="logo-img">
+      <span class="logo-text">Perpustakaan Sekolah Kristen Lentera</span>
+    </div>
+    <button id="menuToggle" class="menu-toggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav id="navMenu" class="nav-menu">
+      <a href="index.html">Beranda</a>
       <a href="koleksi.html">Koleksi</a>
       <a href="layanan.html">Layanan</a>
-      <a href="index.html#tentang">Tentang</a>
       <a href="acara.html">Acara</a>
-      <a href="kontak.html">Jam &amp; Lokasi</a>
+      <a href="keanggotaan.html">Keanggotaan</a>
+      <a href="kontak.html">Kontak</a>
     </nav>
-    <a href="keanggotaan.html" class="nav-cta">Jadi Anggota</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false">☰</button>
   </div>
-  <nav class="links" id="mobileMenu" style="display:none; flex-direction:column; gap:0; background:var(--ink); position:absolute; top:100%; left:0; right:0; padding:8px 32px 20px;">
-    <a href="koleksi.html" style="padding:12px 0; border-top:1px solid rgba(237,230,214,0.1);">Koleksi</a>
-    <a href="layanan.html" style="padding:12px 0; border-top:1px solid rgba(237,230,214,0.1);">Layanan</a>
-    <a href="index.html#tentang" style="padding:12px 0; border-top:1px solid rgba(237,230,214,0.1);">Tentang</a>
-    <a href="acara.html" style="padding:12px 0; border-top:1px solid rgba(237,230,214,0.1);">Acara</a>
-    <a href="kontak.html" style="padding:12px 0; border-top:1px solid rgba(237,230,214,0.1);">Jam &amp; Lokasi</a>
-    <a href="keanggotaan.html" style="padding:12px 0; border-top:1px solid rgba(237,230,214,0.1); color:var(--brass-light);">Jadi Anggota</a>
-  </nav>
 </header>
 
 <section class="page-hero">
