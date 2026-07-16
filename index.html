@@ -76,10 +76,10 @@
     letter-spacing:-0.01em;
   }
   .brand img.main-logo{
-    width: 60px; /* Ukuran diperbesar dari 32px ke 42px */
-    height: 60px;
-    object-fit: contain;
-    margin-right: 2px; /* Memberi sedikit jarak manis dengan teks */
+    width:42px;
+    height:42px;
+    object-fit:contain;
+    margin-right:4px;
   }
   nav.links{display:flex; gap:34px; font-family:'Inter', sans-serif; font-size:0.92rem;}
   nav.links a{color:var(--cream-text); opacity:0.82; position:relative; padding:4px 0;}
@@ -201,7 +201,7 @@
   .reveal{opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease;}
   .reveal.in{opacity:1; transform:translateY(0);}
 
-  /* ===== SHELF (signature element) ===== */
+  /* ===== SHELF ===== */
   .shelf-section{background:var(--paper-dim); border-top:1px solid var(--paper-line); border-bottom:1px solid var(--paper-line);}
   .shelf{
     display:flex; align-items:flex-end; gap:3px;
@@ -349,6 +349,63 @@
   footer ul li a:hover{color:var(--cream-text);}
   .footer-bottom{display:flex; justify-content:space-between; padding-top:26px; font-family:'Inter',sans-serif; font-size:0.78rem; flex-wrap:wrap; gap:10px;}
 
+  /* ===== BOOK GRID ===== */
+  .book-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; min-height: 20px;}
+  .book-card{
+    background:var(--paper); border:1px solid var(--paper-line); border-radius:3px;
+    padding:24px; transition:box-shadow .3s ease, transform .3s ease;
+  }
+  .book-card:hover{box-shadow:0 18px 34px rgba(27,36,48,0.1); transform:translateY(-3px);}
+  .book-card .bc-code{font-family:'Fraunces',serif; font-weight:700; color:var(--brass); font-size:0.9rem;}
+  .book-card h3{font-size:1.08rem; margin-top:8px;}
+  .book-card .bc-author{font-family:'Inter',sans-serif; font-size:0.82rem; color:var(--charcoal-soft); margin-top:4px;}
+  .book-card p{font-size:0.86rem; color:var(--charcoal-soft); margin-top:10px;}
+  .book-card .bc-status{
+    display:inline-block; margin-top:14px; font-family:'Inter',sans-serif; font-size:0.7rem;
+    padding:4px 10px; border-radius:20px; border:1px solid var(--forest); color:var(--forest);
+  }
+  .book-card .bc-status.out{border-color:var(--spine); color:var(--spine);}
+  .category-block{margin-bottom:64px;}
+  .category-block .cb-head{display:flex; align-items:baseline; gap:14px; margin-bottom:24px; border-bottom:1px solid var(--paper-line); padding-bottom:14px;}
+  .category-block .cb-head .code{font-family:'Fraunces',serif; font-weight:700; font-size:1.6rem; color:var(--brass);}
+  .category-block .cb-head h2{font-size:1.4rem;}
+
+  /* ===== LAYANAN & FORM KEANGGOTAAN GENERAL ===== */
+  .service-detail{display:grid; grid-template-columns:0.4fr 1fr; gap:40px; padding:52px 0; border-bottom:1px solid var(--paper-line);}
+  .service-detail:last-child{border-bottom:none;}
+  .service-detail .sd-num{font-family:'Fraunces',serif; font-size:2.6rem; font-weight:700; color:var(--paper-line);}
+  .service-detail h2{font-size:1.6rem; margin-bottom:12px;}
+  .service-detail .sd-list{margin-top:18px; font-family:'Inter',sans-serif; font-size:0.88rem; color:var(--charcoal-soft);}
+  .service-detail .sd-list li{padding:6px 0; border-top:1px dashed var(--paper-line);}
+  .service-detail .sd-list li:first-child{border-top:none;}
+
+  .form-card{background:var(--paper-dim); border:1px solid var(--paper-line); border-radius:4px; padding:40px; max-width:640px;}
+  .field{margin-bottom:20px;}
+  .field label{display:block; font-family:'Inter',sans-serif; font-size:0.78rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--charcoal-soft); margin-bottom:8px; font-weight:600;}
+  .field input, .field select, .field textarea{width:100%; border:1px solid var(--paper-line); background:var(--paper); border-radius:3px; padding:12px 14px; font-family:'Inter',sans-serif; font-size:0.92rem; color:var(--charcoal);}
+  .field input:focus, .field select:focus, .field textarea:focus{outline:none; border-color:var(--brass);}
+  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .submit-btn{background:var(--forest); color:var(--cream-text); border:none; font-family:'Inter',sans-serif; font-weight:700; font-size:0.9rem; padding:14px 30px; border-radius:3px; transition:background .25s ease, transform .25s ease;}
+  .submit-btn:hover{background:#3B5F4C; transform:translateY(-2px);}
+  .form-success{display:none; background:var(--forest); color:var(--cream-text); padding:18px 22px; border-radius:3px; font-family:'Inter',sans-serif; font-size:0.9rem; margin-top:20px;}
+  .form-success.show{display:block;}
+  .benefit-list{margin-top:20px;}
+  .benefit-list li{font-family:'Newsreader',serif; font-size:1rem; padding:14px 0; border-top:1px solid var(--paper-line); display:flex; gap:14px; align-items:flex-start;}
+  .benefit-list li:first-child{border-top:none;}
+  .benefit-list .bl-mark{color:var(--brass); font-family:'Fraunces',serif; font-weight:700;}
+
+  .event-full{display:grid; grid-template-columns:180px 1fr; gap:32px; padding:44px 0; border-bottom:1px solid var(--paper-line); align-items:start;}
+  .event-full:last-child{border-bottom:none;}
+  .event-full .ef-date{background:var(--spine); color:var(--cream-text); border-radius:3px; padding:18px; text-align:center;}
+  .event-full .ef-date .d{font-family:'Fraunces',serif; font-size:2.2rem; font-weight:700; line-height:1;}
+  .event-full .ef-date .m{font-family:'Inter',sans-serif; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; opacity:0.85;}
+  .event-full h2{font-size:1.4rem;}
+  .event-full .ef-meta{font-family:'Inter',sans-serif; font-size:0.82rem; color:var(--brass); margin-top:6px;}
+  .event-full p{margin-top:12px; color:var(--charcoal-soft);}
+  .event-full .cta-btn{margin-top:16px;}
+  .link-btn{font-family:'Inter',sans-serif; font-size:0.82rem; font-weight:600; color:var(--forest); display:inline-flex; align-items:center; gap:6px; margin-top:14px; border-bottom:1px solid transparent; transition:border-color .2s ease;}
+  .link-btn:hover{border-color:var(--forest);}
+
   @media (max-width: 940px){
     .hero-grid{grid-template-columns:1fr;}
     .hero-grid > .hero-visual{order:-1; max-width:280px;}
@@ -360,164 +417,32 @@
     .footer-grid{grid-template-columns:1fr 1fr;}
     nav.links{display:none;}
     .menu-toggle{display:block;}
+    .book-grid{grid-template-columns:1fr 1fr;}
+    .service-detail{grid-template-columns:1fr;}
+    .event-full{grid-template-columns:1fr;}
+    .event-full .ef-date{width:90px;}
+    .field-row{grid-template-columns:1fr;}
   }
   @media (max-width: 560px){
     .services{grid-template-columns:1fr;}
     .footer-grid{grid-template-columns:1fr;}
     .wrap{padding:0 20px;}
     .catalog-search{flex-direction:column;}
+    .book-grid{grid-template-columns:1fr;}
   }
   @media (prefers-reduced-motion: reduce){
     *{transition:none !important; scroll-behavior:auto !important;}
   }
-
-/* ===== SCROLL OFFSET FOR ANCHORS ===== */
-section[id]{ scroll-margin-top: 88px; }
-.spine[id]{ scroll-margin-top: 88px; }
-
-/* ===== PAGE HERO (subpages) ===== */
-.page-hero{
-  background:linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
-  color:var(--cream-text);
-  padding:150px 0 70px;
-  position:relative;
-}
-.page-hero::before{
-  content:'';
-  position:absolute; inset:0;
-  background-image:repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 64px);
-  pointer-events:none;
-}
-.breadcrumb{
-  font-family:'Inter',sans-serif; font-size:0.8rem; color:rgba(237,230,214,0.55);
-  display:flex; gap:8px; align-items:center; margin-bottom:18px; position:relative;
-}
-.breadcrumb a{color:rgba(237,230,214,0.8);}
-.breadcrumb a:hover{color:var(--brass-light);}
-.page-hero h1{color:var(--cream-text); font-size:clamp(2.2rem, 4vw, 3.2rem); max-width:20ch; position:relative;}
-.page-hero p.lede{color:rgba(237,230,214,0.72); margin-top:16px; max-width:52ch; font-size:1.05rem; position:relative;}
-
-/* ===== BOOK GRID (koleksi.html) ===== */
-.book-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
-.book-card{
-  background:var(--paper); border:1px solid var(--paper-line); border-radius:3px;
-  padding:24px; transition:box-shadow .3s ease, transform .3s ease;
-}
-.book-card:hover{box-shadow:0 18px 34px rgba(27,36,48,0.1); transform:translateY(-3px);}
-.book-card .bc-code{font-family:'Fraunces',serif; font-weight:700; color:var(--brass); font-size:0.9rem;}
-.book-card h3{font-size:1.08rem; margin-top:8px;}
-.book-card .bc-author{font-family:'Inter',sans-serif; font-size:0.82rem; color:var(--charcoal-soft); margin-top:4px;}
-.book-card p{font-size:0.86rem; color:var(--charcoal-soft); margin-top:10px;}
-.book-card .bc-status{
-  display:inline-block; margin-top:14px; font-family:'Inter',sans-serif; font-size:0.7rem;
-  padding:4px 10px; border-radius:20px; border:1px solid var(--forest); color:var(--forest);
-}
-.book-card .bc-status.out{border-color:var(--spine); color:var(--spine);}
-.category-block{margin-bottom:64px;}
-.category-block .cb-head{display:flex; align-items:baseline; gap:14px; margin-bottom:24px; border-bottom:1px solid var(--paper-line); padding-bottom:14px;}
-.category-block .cb-head .code{font-family:'Fraunces',serif; font-weight:700; font-size:1.6rem; color:var(--brass);}
-.category-block .cb-head h2{font-size:1.4rem;}
-
-/* ===== SERVICE DETAIL (layanan.html) ===== */
-.service-detail{
-  display:grid; grid-template-columns:0.4fr 1fr; gap:40px; padding:52px 0;
-  border-bottom:1px solid var(--paper-line);
-}
-.service-detail:last-child{border-bottom:none;}
-.service-detail .sd-num{font-family:'Fraunces',serif; font-size:2.6rem; font-weight:700; color:var(--paper-line);}
-.service-detail h2{font-size:1.6rem; margin-bottom:12px;}
-.service-detail .sd-list{margin-top:18px; font-family:'Inter',sans-serif; font-size:0.88rem; color:var(--charcoal-soft);}
-.service-detail .sd-list li{padding:6px 0; border-top:1px dashed var(--paper-line);}
-.service-detail .sd-list li:first-child{border-top:none;}
-
-/* ===== FORM (keanggotaan.html, kontak.html) ===== */
-.form-card{
-  background:var(--paper-dim); border:1px solid var(--paper-line); border-radius:4px; padding:40px;
-  max-width:640px;
-}
-.field{margin-bottom:20px;}
-.field label{
-  display:block; font-family:'Inter',sans-serif; font-size:0.78rem; letter-spacing:0.04em;
-  text-transform:uppercase; color:var(--charcoal-soft); margin-bottom:8px; font-weight:600;
-}
-.field input, .field select, .field textarea{
-  width:100%; border:1px solid var(--paper-line); background:var(--paper);
-  border-radius:3px; padding:12px 14px; font-family:'Inter',sans-serif; font-size:0.92rem;
-  color:var(--charcoal);
-}
-.field input:focus, .field select:focus, .field textarea:focus{outline:none; border-color:var(--brass);}
-.field-row{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
-.submit-btn{
-  background:var(--forest); color:var(--cream-text); border:none; font-family:'Inter',sans-serif;
-  font-weight:700; font-size:0.9rem; padding:14px 30px; border-radius:3px;
-  transition:background .25s ease, transform .25s ease;
-}
-.submit-btn:hover{background:#3B5F4C; transform:translateY(-2px);}
-.form-success{
-  display:none; background:var(--forest); color:var(--cream-text); padding:18px 22px;
-  border-radius:3px; font-family:'Inter',sans-serif; font-size:0.9rem; margin-top:20px;
-}
-.form-success.show{display:block;}
-.benefit-list{margin-top:20px;}
-.benefit-list li{
-  font-family:'Newsreader',serif; font-size:1rem; padding:14px 0; border-top:1px solid var(--paper-line);
-  display:flex; gap:14px; align-items:flex-start;
-}
-.benefit-list li:first-child{border-top:none;}
-.benefit-list .bl-mark{color:var(--brass); font-family:'Fraunces',serif; font-weight:700;}
-
-/* ===== EVENT DETAIL PAGE ===== */
-.event-full{
-  display:grid; grid-template-columns:180px 1fr; gap:32px; padding:44px 0; border-bottom:1px solid var(--paper-line);
-  align-items:start;
-}
-.event-full:last-child{border-bottom:none;}
-.event-full .ef-date{
-  background:var(--spine); color:var(--cream-text); border-radius:3px; padding:18px; text-align:center;
-}
-.event-full .ef-date .d{font-family:'Fraunces',serif; font-size:2.2rem; font-weight:700; line-height:1;}
-.event-full .ef-date .m{font-family:'Inter',sans-serif; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; opacity:0.85;}
-.event-full h2{font-size:1.4rem;}
-.event-full .ef-meta{font-family:'Inter',sans-serif; font-size:0.82rem; color:var(--brass); margin-top:6px;}
-.event-full p{margin-top:12px; color:var(--charcoal-soft);}
-.event-full .cta-btn{margin-top:16px;}
-
-/* ===== SMALL LINK BUTTON ===== */
-.link-btn{
-  font-family:'Inter',sans-serif; font-size:0.82rem; font-weight:600; color:var(--forest);
-  display:inline-flex; align-items:center; gap:6px; margin-top:14px;
-  border-bottom:1px solid transparent; transition:border-color .2s ease;
-}
-.link-btn:hover{border-color:var(--forest);}
-
-@media (max-width: 940px){
-  .book-grid{grid-template-columns:1fr 1fr;}
-  .service-detail{grid-template-columns:1fr;}
-  .event-full{grid-template-columns:1fr;}
-  .event-full .ef-date{width:90px;}
-  .field-row{grid-template-columns:1fr;}
-}
-@media (max-width: 560px){
-  .book-grid{grid-template-columns:1fr;}
-}
-
-@media (max-width: 940px){
-  section > .wrap[style*="grid-template-columns:0.8fr 1.2fr"]{
-    display:block !important;
-  }
-  section > .wrap[style*="grid-template-columns:0.8fr 1.2fr"] > *{
-    margin-bottom:40px;
-  }
-}
+  section[id]{ scroll-margin-top: 88px; }
+  .spine[id]{ scroll-margin-top: 88px; }
 </style>
-
 </head>
 <body>
 
 <header class="site" id="siteHeader">
   <div class="wrap nav-inner">
     <a href="#top" class="brand">
-      <img src="logo lentera transparan.png" alt="Logo Perpus SKL" class="main-logo">
+      <img src="logo lentera transparan.jpg" alt="Logo Perpus SKL" class="main-logo">
       Perpus SKL
     </a>
     <nav class="links">
@@ -526,6 +451,7 @@ section[id]{ scroll-margin-top: 88px; }
       <a href="#tentang">Tentang</a>
       <a href="#acara">Acara</a>
       <a href="#kontak">Jam &amp; Lokasi</a>
+      <a href="#admin-panel" style="color: var(--brass-light); font-weight: 600;">Panel Admin</a>
     </nav>
     <a href="#keanggotaan" class="nav-cta">Jadi Anggota</a>
     <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false">☰</button>
@@ -536,16 +462,17 @@ section[id]{ scroll-margin-top: 88px; }
     <a href="#tentang" style="padding:12px 0; border-top:1px solid rgba(237,230,214,0.1);">Tentang</a>
     <a href="#acara" style="padding:12px 0; border-top:1px solid rgba(237,230,214,0.1);">Acara</a>
     <a href="#kontak" style="padding:12px 0; border-top:1px solid rgba(237,230,214,0.1);">Jam &amp; Lokasi</a>
-    <a href="#keanggotaan" style="padding:12px 0; border-top:1px solid rgba(237,230,214,0.1); color:var(--brass-light);">Jadi Anggota</a>
+    <a href="#admin-panel" style="padding:12px 0; border-top:1px solid rgba(237,230,214,0.1); color: var(--brass-light);">Panel Admin</a>
+    <a href="#keanggotaan" style="padding:12px 0; border-top:1px solid rgba(237,230,214,0.1); color:var(--cream-text);">Jadi Anggota</a>
   </nav>
 </header>
 
 <section class="hero" id="top">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow">Perpustakaan Sekolah Kristen Lentera Ambarawa</span>
+      <span class="eyebrow">Perpustakaan Umum Kota — Sejak 1998</span>
       <h1>Setiap rak menyimpan <em>jalan pulang</em> yang belum kamu tempuh.</h1>
-      <p class="lede">Lebih dari 1000 koleksi, ruang baca yang tenang, dan akses digital tanpa batas. Perpus SKL terbuka untuk siapa saja yang ingin membaca, belajar, atau sekadar diam sejenak.</p>
+      <p class="lede">Lebih dari 40.000 koleksi, ruang baca yang tenang, dan akses digital tanpa batas. Perpus SKL terbuka untuk siapa saja yang ingin membaca, belajar, atau sekadar diam sejenak.</p>
       <form class="catalog-search" id="catalogSearch">
         <input type="text" id="searchInput" name="q" placeholder="Cari judul, penulis, atau rak — mis. “sejarah”, “500”" aria-label="Cari koleksi">
         <button type="submit">Telusuri</button>
@@ -559,17 +486,18 @@ section[id]{ scroll-margin-top: 88px; }
       </div>
     </div>
     <div class="hero-visual">
-      <a class="catalog-card" href="#cat-800" style="display:block;">
-        <span class="cc-code">813</span>
-        <span class="cc-tag">Kartu Katalog</span>
-        <h3>Laut Bercerita</h3>
-        <p>Leila S. Chudori — Fiksi Sejarah</p>
-        <p>Rak 12, Lantai 2 · Tersedia 3 salinan</p>
+      <div class="catalog-card">
+        <span class="cc-code">Live</span>
+        <span class="cc-tag">Katalog Pintar</span>
+        <h3>Database Online</h3>
+        <p>Tersinkronisasi dengan Firebase</p>
+        <p>Data buku terupdate otomatis</p>
         <div class="hole"></div>
-      </a>
+      </div>
     </div>
   </div>
 </section>
+
 <section class="shelf-section" id="koleksi">
   <div class="wrap">
     <div class="shelf" id="shelf">
@@ -592,223 +520,54 @@ section[id]{ scroll-margin-top: 88px; }
 </section>
 
 <section>
-  <div class="wrap">
-
-    <div class="category-block" id="cat-000">
-      <div class="cb-head"><span class="code">000</span><h2>Karya Umum</h2></div>
-      <div class="book-grid">
-        <div class="book-card"><span class="bc-code">001.4</span><h3>Cara Berpikir Jernih di Era Informasi</h3><p class="bc-author">Ratna Widya</p><p>Panduan menyaring informasi di tengah banjir data digital.</p><span class="bc-status">Tersedia</span></div>
-        <div class="book-card"><span class="bc-code">020</span><h3>Ilmu Perpustakaan Modern</h3><p class="bc-author">Hasan Prakoso</p><p>Pengantar pengelolaan koleksi dan layanan perpustakaan masa kini.</p><span class="bc-status">Tersedia</span></div>
-        <div class="book-card"><span class="bc-code">030</span><h3>Ensiklopedia Nusantara Ringkas</h3><p class="bc-author">Tim Redaksi Nusa</p><p>Rangkuman entri penting seputar budaya dan geografi Indonesia.</p><span class="bc-status out">Dipinjam</span></div>
-      </div>
-    </div>
-
-    <div class="category-block" id="cat-100">
-      <div class="cb-head"><span class="code">100</span><h2>Filsafat &amp; Psikologi</h2></div>
-      <div class="book-grid">
-        <div class="book-card"><span class="bc-code">128</span><h3>Percakapan dengan Diri Sendiri</h3><p class="bc-author">Aji Nugraha</p><p>Esai reflektif tentang kesadaran dan makna hidup sehari-hari.</p><span class="bc-status">Tersedia</span></div>
-        <div class="book-card"><span class="bc-code">150</span><h3>Psikologi untuk Pemula</h3><p class="bc-author">Dr. Sri Handayani</p><p>Pengantar ringan memahami perilaku dan pikiran manusia.</p><span class="bc-status">Tersedia</span></div>
-        <div class="book-card"><span class="bc-code">170</span><h3>Etika di Ruang Digital</h3><p class="bc-author">Bimo Saputra</p><p>Diskusi filsafat moral menghadapi dilema teknologi masa kini.</p><span class="bc-status">Tersedia</span></div>
-      </div>
-    </div>
-
-    <div class="category-block" id="cat-200">
-      <div class="cb-head"><span class="code">200</span><h2>Agama</h2></div>
-      <div class="book-grid">
-        <div class="book-card"><span class="bc-code">230</span><h3>Jalan-Jalan Spiritual</h3><p class="bc-author">Umar Faisal</p><p>Catatan perjalanan mengunjungi rumah ibadah lintas tradisi.</p><span class="bc-status">Tersedia</span></div>
-        <div class="book-card"><span class="bc-code">290</span><h3>Perbandingan Agama Dunia</h3><p class="bc-author">Prof. Yusuf Alamsyah</p><p>Kajian akademis tentang keberagaman kepercayaan di dunia.</p><span class="bc-status out">Dipinjam</span></div>
-        <div class="book-card"><span class="bc-code">297</span><h3>Kisah-Kisah Kearifan</h3><p class="bc-author">Nurul Aini</p><p>Kumpulan cerita hikmah dari berbagai tradisi keagamaan.</p><span class="bc-status">Tersedia</span></div>
-      </div>
-    </div>
-
-    <div class="category-block" id="cat-300">
-      <div class="cb-head"><span class="code">300</span><h2>Ilmu Sosial</h2></div>
-      <div class="book-grid">
-        <div class="book-card"><span class="bc-code">330</span><h3>Ekonomi Rakyat Kecil</h3><p class="bc-author">Wahyu Setiawan</p><p>Potret usaha mikro dan cara mereka bertahan di kota.</p><span class="bc-status">Tersedia</span></div>
-        <div class="book-card"><span class="bc-code">370</span><h3>Sekolah yang Menyenangkan</h3><p class="bc-author">Ika Puspita</p><p>Gagasan praktis membangun pendidikan yang ramah anak.</p><span class="bc-status">Tersedia</span></div>
-        <div class="book-card"><span class="bc-code">320</span><h3>Politik untuk Warga Biasa</h3><p class="bc-author">Reza Kurniawan</p><p>Penjelasan sederhana tentang sistem pemerintahan dan hak warga.</p><span class="bc-status">Tersedia</span></div>
-      </div>
-    </div>
-
-    <div class="category-block" id="cat-400">
-      <div class="cb-head"><span class="code">400</span><h2>Bahasa</h2></div>
-      <div class="book-grid">
-        <div class="book-card"><span class="bc-code">499</span><h3>Kamus Saku Bahasa Jawa</h3><p class="bc-author">Tim Bahasa Nusa</p><p>Kosakata sehari-hari lengkap dengan contoh penggunaannya.</p><span class="bc-status">Tersedia</span></div>
-        <div class="book-card"><span class="bc-code">428</span><h3>Belajar Inggris dari Nol</h3><p class="bc-author">Clara Simanjuntak</p><p>Panduan bertahap untuk pemula yang ingin lancar berbahasa Inggris.</p><span class="bc-status out">Dipinjam</span></div>
-        <div class="book-card"><span class="bc-code">410</span><h3>Asal-Usul Bahasa Nusantara</h3><p class="bc-author">Dr. Made Wirawan</p><p>Penelusuran sejarah dan persebaran rumpun bahasa di Indonesia.</p><span class="bc-status">Tersedia</span></div>
-      </div>
-    </div>
-
-    <div class="category-block" id="cat-500">
-      <div class="cb-head"><span class="code">500</span><h2>Sains Murni</h2></div>
-      <div class="book-grid">
-        <div class="book-card"><span class="bc-code">520</span><h3>Melihat Langit Malam</h3><p class="bc-author">Dwi Handoko</p><p>Panduan mengenal rasi bintang tanpa perlu teleskop mahal.</p><span class="bc-status">Tersedia</span></div>
-        <div class="book-card"><span class="bc-code">570</span><h3>Kehidupan di Balik Mikroskop</h3><p class="bc-author">Dr. Fitri Amalia</p><p>Perkenalan dunia mikroorganisme untuk pembaca umum.</p><span class="bc-status">Tersedia</span></div>
-        <div class="book-card"><span class="bc-code">510</span><h3>Matematika yang Menyenangkan</h3><p class="bc-author">Agus Salim</p><p>Teka-teki dan pola angka untuk melatih cara berpikir logis.</p><span class="bc-status">Tersedia</span></div>
-      </div>
-    </div>
-
-    <div class="category-block" id="cat-600">
-      <div class="cb-head"><span class="code">600</span><h2>Teknologi</h2></div>
-      <div class="book-grid">
-        <div class="book-card"><span class="bc-code">610</span><h3>Merawat Tubuh, Merawat Pikiran</h3><p class="bc-author">dr. Anandita Putri</p><p>Panduan kesehatan praktis untuk kehidupan sehari-hari.</p><span class="bc-status">Tersedia</span></div>
-        <div class="book-card"><span class="bc-code">630</span><h3>Berkebun di Lahan Sempit</h3><p class="bc-author">Sutrisno</p><p>Teknik menanam sayur di halaman rumah perkotaan.</p><span class="bc-status out">Dipinjam</span></div>
-        <div class="book-card"><span class="bc-code">005</span><h3>Belajar Coding Sejak Dini</h3><p class="bc-author">Kevin Halim</p><p>Pengantar pemrograman dasar untuk pelajar dan pemula.</p><span class="bc-status">Tersedia</span></div>
-      </div>
-    </div>
-
-    <div class="category-block" id="cat-700">
-      <div class="cb-head"><span class="code">700</span><h2>Seni &amp; Rekreasi</h2></div>
-      <div class="book-grid">
-        <div class="book-card"><span class="bc-code">741</span><h3>Sketsa Kota Semarang</h3><p class="bc-author">Rangga Permana</p><p>Kumpulan ilustrasi tangan yang merekam sudut-sudut kota.</p><span class="bc-status">Tersedia</span></div>
-        <div class="book-card"><span class="bc-code">780</span><h3>Musik Tradisi yang Bertahan</h3><p class="bc-author">Siti Marlina</p><p>Cerita di balik alat musik daerah yang masih dimainkan.</p><span class="bc-status">Tersedia</span></div>
-        <div class="book-card"><span class="bc-code">796</span><h3>Sepak Bola dari Gang Kecil</h3><p class="bc-author">Doni Firmansyah</p><p>Kisah lapangan-lapangan kampung yang melahirkan pemain berbakat.</p><span class="bc-status">Tersedia</span></div>
-      </div>
-    </div>
-
-    <div class="category-block" id="cat-800">
-      <div class="cb-head"><span class="code">800</span><h2>Sastra</h2></div>
-      <div class="book-grid">
-        <div class="book-card"><span class="bc-code">813</span><h3>Laut Bercerita</h3><p class="bc-author">Leila S. Chudori</p><p>Novel sejarah tentang persahabatan dan kehilangan di masa kelam.</p><span class="bc-status">Tersedia</span></div>
-        <div class="book-card"><span class="bc-code">808</span><h3>Kumpulan Puisi Senja</h3><p class="bc-author">Ayu Larasati</p><p>Puisi-puisi pendek tentang rumah, rindu, dan pulang.</p><span class="bc-status">Tersedia</span></div>
-        <div class="book-card"><span class="bc-code">899</span><h3>Cerita dari Pulau Seberang</h3><p class="bc-author">Fajar Ramadhan</p><p>Antologi cerpen dari penulis-penulis muda luar Jawa.</p><span class="bc-status out">Dipinjam</span></div>
-      </div>
-    </div>
-
-    <div class="category-block" id="cat-900">
-      <div class="cb-head"><span class="code">900</span><h2>Sejarah &amp; Geografi</h2></div>
-      <div class="book-grid">
-        <div class="book-card"><span class="bc-code">959</span><h3>Jejak Rempah Nusantara</h3><p class="bc-author">Prof. Bambang Kusumo</p><p>Perjalanan sejarah perdagangan rempah dan pengaruhnya kini.</p><span class="bc-status">Tersedia</span></div>
-        <div class="book-card"><span class="bc-code">920</span><h3>Biografi Para Pendiri Kota</h3><p class="bc-author">Herlina Wijaya</p><p>Kisah tokoh-tokoh di balik berdirinya kota-kota tua Jawa.</p><span class="bc-status">Tersedia</span></div>
-        <div class="book-card"><span class="bc-code">910</span><h3>Catatan Perjalanan ke Timur</h3><p class="bc-author">Yoga Pratama</p><p>Kisah menyusuri kepulauan timur Indonesia dengan kapal kayu.</p><span class="bc-status">Tersedia</span></div>
-      </div>
-    </div>
-
+  <div class="wrap" id="koleksiContainer">
+    <div class="category-block" id="cat-000"><div class="cb-head"><span class="code">000</span><h2>Karya Umum</h2></div><div class="book-grid"></div></div>
+    <div class="category-block" id="cat-100"><div class="cb-head"><span class="code">100</span><h2>Filsafat &amp; Psikologi</h2></div><div class="book-grid"></div></div>
+    <div class="category-block" id="cat-200"><div class="cb-head"><span class="code">200</span><h2>Agama</h2></div><div class="book-grid"></div></div>
+    <div class="category-block" id="cat-300"><div class="cb-head"><span class="code">300</span><h2>Ilmu Sosial</h2></div><div class="book-grid"></div></div>
+    <div class="category-block" id="cat-400"><div class="cb-head"><span class="code">400</span><h2>Bahasa</h2></div><div class="book-grid"></div></div>
+    <div class="category-block" id="cat-500"><div class="cb-head"><span class="code">500</span><h2>Sains Murni</h2></div><div class="book-grid"></div></div>
+    <div class="category-block" id="cat-600"><div class="cb-head"><span class="code">600</span><h2>Teknologi</h2></div><div class="book-grid"></div></div>
+    <div class="category-block" id="cat-700"><div class="cb-head"><span class="code">700</span><h2>Seni &amp; Rekreasi</h2></div><div class="book-grid"></div></div>
+    <div class="category-block" id="cat-800"><div class="cb-head"><span class="code">800</span><h2>Sastra</h2></div><div class="book-grid"></div></div>
+    <div class="category-block" id="cat-900"><div class="cb-head"><span class="code">900</span><h2>Sejarah &amp; Geografi</h2></div><div class="book-grid"></div></div>
   </div>
 </section>
 
 <section id="layanan">
   <div class="wrap">
-
     <div class="service-detail" id="layanan-1">
       <div class="sd-num">01</div>
       <div>
         <h2>Peminjaman Mandiri</h2>
-        <p>Pindai kartu anggotamu di mesin layanan mandiri dan bawa pulang hingga 5 judul sekaligus. Tidak perlu antre ke meja petugas untuk peminjaman rutin.</p>
+        <p>Pindai kartu anggotamu di mesin layanan mandiri dan bawa pulang hingga 5 judul sekaligus.</p>
         <ul class="sd-list">
           <li>Maksimal 5 judul per kunjungan</li>
-          <li>Masa pinjam 14 hari, bisa diperpanjang 1 kali lewat aplikasi</li>
-          <li>Mesin tersedia di lantai 1, dekat pintu masuk</li>
+          <li>Masa pinjam 14 hari, bisa diperpanjang 1 kali</li>
         </ul>
-        <a href="#keanggotaan" class="link-btn">Belum punya kartu anggota? Daftar di sini →</a>
       </div>
     </div>
-
     <div class="service-detail" id="layanan-2">
       <div class="sd-num">02</div>
       <div>
         <h2>Ruang Baca Tenang</h2>
-        <p>Area baca dengan cahaya alami di lantai 2, dirancang untuk membaca dan belajar tanpa gangguan. Kursi tersedia tanpa reservasi, kecuali saat musim ujian.</p>
-        <ul class="sd-list">
-          <li>60 kursi baca individual</li>
-          <li>Zona bebas suara — panggilan telepon dimohon di lobi</li>
-          <li>Buka mengikuti jam operasional perpustakaan</li>
-        </ul>
-        <a href="#kontak" class="link-btn">Cek jam operasional →</a>
+        <p>Area baca dengan cahaya alami di lantai 2, dirancang untuk membaca tanpa gangguan.</p>
       </div>
     </div>
-
-    <div class="service-detail" id="layanan-3">
-      <div class="sd-num">03</div>
-      <div>
-        <h2>Perpustakaan Digital</h2>
-        <p>Akses ribuan e-book dan jurnal dari rumah menggunakan nomor anggotamu. Cocok untuk pelajar dan pekerja yang sulit datang langsung.</p>
-        <ul class="sd-list">
-          <li>Tersedia di web dan aplikasi mobile</li>
-          <li>Bisa dibaca di maksimal 2 perangkat sekaligus</li>
-          <li>Koleksi diperbarui setiap bulan</li>
-        </ul>
-        <a href="#koleksi" class="link-btn">Jelajahi koleksi →</a>
-      </div>
-    </div>
-
-    <div class="service-detail" id="layanan-4">
-      <div class="sd-num">04</div>
-      <div>
-        <h2>Ruang Diskusi</h2>
-        <p>Empat ruang kecil berkapasitas 4–6 orang untuk belajar kelompok, rapat komunitas, atau latihan presentasi.</p>
-        <ul class="sd-list">
-          <li>Pemesanan lewat meja layanan, maksimal 2 jam per sesi</li>
-          <li>Dilengkapi papan tulis dan layar kecil</li>
-          <li>Gratis untuk anggota aktif</li>
-        </ul>
-        <a href="#kontak" class="link-btn">Hubungi meja layanan →</a>
-      </div>
-    </div>
-
   </div>
 </section>
-
 
 <section class="about" id="tentang">
   <div class="wrap">
     <div class="reveal">
       <span class="eyebrow" style="color:var(--brass-light);">Tentang Perpus SKL</span>
       <h2>Ruang publik untuk membaca, belajar, dan berkumpul.</h2>
-      <p>Berdiri sejak 1998, Perpus SKL tumbuh dari satu ruang baca kecil menjadi perpustakaan kota dengan koleksi yang terus bertambah setiap tahun. Kami percaya akses terhadap buku adalah hak, bukan kemewahan — karena itu keanggotaan selalu gratis untuk warga kota.</p>
-      <a href="#keanggotaan" class="link-btn">Jadi anggota sekarang →</a>
+      <p>Berdiri sejak 1998, Perpus SKL tumbuh dari satu ruang baca kecil menjadi perpustakaan kota dengan koleksi digital dan fisik yang terintegrasi modern.</p>
     </div>
     <div class="stat-grid reveal">
-      <div class="stat"><div class="n">42rb+</div><div class="l">Koleksi Buku</div></div>
-      <div class="stat"><div class="n">12rb+</div><div class="l">Anggota Aktif</div></div>
+      <div class="stat"><div class="n">Cloud</div><div class="l">Firebase DB Connected</div></div>
       <div class="stat"><div class="n">7 hari</div><div class="l">Buka Tiap Minggu</div></div>
-      <div class="stat"><div class="n">1998</div><div class="l">Tahun Berdiri</div></div>
     </div>
-  </div>
-</section>
-<section id="acara">
-  <div class="wrap">
-
-    <div class="event-full" id="event-1">
-      <div class="ef-date"><div class="d">18</div><div class="m">Juli</div></div>
-      <div>
-        <h2>Klub Buku: Fiksi Sejarah Nusantara</h2>
-        <div class="ef-meta">Jumat, 18 Juli · 16.00 – 17.30 · Ruang Diskusi 2</div>
-        <p>Diskusi bulanan membahas novel pilihan bersama komunitas pembaca kota. Bulan ini kita membahas "Laut Bercerita" karya Leila S. Chudori — silakan baca terlebih dahulu sebelum datang.</p>
-        <a href="mailto:halo@perpusskl.id?subject=Daftar%20Klub%20Buku%2018%20Juli" class="cta-btn" style="background:var(--forest); color:var(--cream-text); display:inline-block;">Daftar Hadir</a>
-      </div>
-    </div>
-
-    <div class="event-full" id="event-2">
-      <div class="ef-date"><div class="d">24</div><div class="m">Juli</div></div>
-      <div>
-        <h2>Lokakarya Menulis Cerpen</h2>
-        <div class="ef-meta">Jumat, 24 Juli · 13.00 – 15.00 · Lantai 2</div>
-        <p>Sesi menulis kreatif untuk pemula, dipandu penulis tamu setiap akhir bulan. Peserta dianjurkan membawa laptop atau buku catatan sendiri.</p>
-        <a href="mailto:halo@perpusskl.id?subject=Daftar%20Lokakarya%20Menulis%2024%20Juli" class="cta-btn" style="background:var(--forest); color:var(--cream-text); display:inline-block;">Daftar Hadir</a>
-      </div>
-    </div>
-
-    <div class="event-full" id="event-3">
-      <div class="ef-date"><div class="d">02</div><div class="m">Agu</div></div>
-      <div>
-        <h2>Jam Cerita untuk Anak</h2>
-        <div class="ef-meta">Minggu, 2 Agustus · 10.00 – 11.00 · Sudut Anak</div>
-        <p>Sesi mendongeng interaktif untuk anak usia 4–8 tahun bersama pustakawan. Orang tua dipersilakan menunggu di area baca terdekat.</p>
-        <a href="mailto:halo@perpusskl.id?subject=Daftar%20Jam%20Cerita%20Anak%202%20Agustus" class="cta-btn" style="background:var(--forest); color:var(--cream-text); display:inline-block;">Daftar Hadir</a>
-      </div>
-    </div>
-
-    <div class="event-full" id="event-4">
-      <div class="ef-date"><div class="d">09</div><div class="m">Agu</div></div>
-      <div>
-        <h2>Pengenalan Perpustakaan Digital</h2>
-        <div class="ef-meta">Minggu, 9 Agustus · 10.00 – 11.00 · Ruang Diskusi 1</div>
-        <p>Sesi singkat untuk anggota baru yang ingin belajar mengakses e-book dan jurnal dari perangkat pribadi.</p>
-        <a href="mailto:halo@perpusskl.id?subject=Daftar%20Pengenalan%20Perpustakaan%20Digital" class="cta-btn" style="background:var(--forest); color:var(--cream-text); display:inline-block;">Daftar Hadir</a>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -819,97 +578,89 @@ section[id]{ scroll-margin-top: 88px; }
       <h2 style="margin-bottom:24px;">Buka Setiap Hari</h2>
       <table class="hours">
         <tr><td>Senin – Jumat</td><td>08.00 – 20.00</td></tr>
-        <tr><td>Sabtu</td><td>09.00 – 18.00</td></tr>
-        <tr><td>Minggu</td><td>10.00 – 16.00</td></tr>
-        <tr><td>Hari Libur Nasional</td><td>10.00 – 14.00</td></tr>
+        <tr><td>Sabtu – Minggu</td><td>09.00 – 16.00</td></tr>
       </table>
     </div>
     <div class="addr-card">
       <span class="eyebrow">Alamat</span>
-      <p>Jl. Diponegoro No. 45, Semarang, Jawa Tengah<br>Area parkir tersedia di sisi utara gedung.</p>
+      <p>Jl. Diponegoro No. 45, Semarang, Jawa Tengah</p>
       <div class="map-strip">PETA LOKASI</div>
     </div>
   </div>
 </section>
 
-<section style="padding-top:0;">
-  <div class="wrap">
-    <span class="eyebrow">Kirim Pesan</span>
-    <h2 style="margin-bottom:24px;">Hubungi Meja Layanan</h2>
-    <form class="form-card" id="contactForm">
-      <div class="field">
-        <label for="cf-nama">Nama Lengkap</label>
-        <input type="text" id="cf-nama" name="nama" required>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="cf-email">Email</label>
-          <input type="email" id="cf-email" name="email" required>
-        </div>
-        <div class="field">
-          <label for="cf-topik">Topik</label>
-          <select id="cf-topik" name="topik">
-            <option>Pertanyaan Umum</option>
-            <option>Peminjaman &amp; Pengembalian</option>
-            <option>Pemesanan Ruang Diskusi</option>
-            <option>Kerja Sama Acara</option>
-          </select>
-        </div>
-      </div>
-      <div class="field">
-        <label for="cf-pesan">Pesan</label>
-        <textarea id="cf-pesan" name="pesan" rows="4" required></textarea>
-      </div>
-      <button type="submit" class="submit-btn">Kirim Pesan</button>
-      <div class="form-success" id="cfSuccess">Terima kasih — pesanmu sudah tercatat. Tim kami akan membalas melalui email dalam 1 hari kerja.</div>
-    </form>
-  </div>
-</section>
-
 <section id="keanggotaan">
-  <div class="wrap" style="display:grid; grid-template-columns:0.8fr 1.2fr; gap:56px; align-items:start;">
-    <div>
-      <span class="eyebrow">Manfaat Keanggotaan</span>
-      <h2 style="margin-top:10px;">Apa yang kamu dapat</h2>
-      <ul class="benefit-list">
-        <li><span class="bl-mark">01</span><span>Pinjam hingga 5 buku sekaligus selama 14 hari, bisa diperpanjang.</span></li>
-        <li><span class="bl-mark">02</span><span>Akses penuh ke perpustakaan digital dari perangkat pribadi.</span></li>
-        <li><span class="bl-mark">03</span><span>Prioritas kursi saat lokakarya dan acara komunitas.</span></li>
-        <li><span class="bl-mark">04</span><span>Bebas biaya pemesanan ruang diskusi kelompok.</span></li>
-      </ul>
-    </div>
-
+  <div class="wrap">
+    <span class="eyebrow">Pendaftaran</span>
+    <h2 style="margin-bottom:24px;">Form Formulir Keanggotaan</h2>
     <form class="form-card" id="memberForm" style="max-width:none;">
       <div class="field-row">
-        <div class="field">
-          <label for="mf-nama">Nama Lengkap</label>
-          <input type="text" id="mf-nama" name="nama" required>
-        </div>
-        <div class="field">
-          <label for="mf-lahir">Tanggal Lahir</label>
-          <input type="date" id="mf-lahir" name="lahir" required>
-        </div>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="mf-email">Email</label>
-          <input type="email" id="mf-email" name="email" required>
-        </div>
-        <div class="field">
-          <label for="mf-hp">Nomor HP</label>
-          <input type="tel" id="mf-hp" name="hp" required>
-        </div>
-      </div>
-      <div class="field">
-        <label for="mf-alamat">Alamat Domisili</label>
-        <textarea id="mf-alamat" name="alamat" rows="3" required></textarea>
+        <div class="field"><label for="mf-nama">Nama Lengkap</label><input type="text" id="mf-nama" required></div>
+        <div class="field"><label for="mf-email">Email</label><input type="email" id="mf-email" required></div>
       </div>
       <button type="submit" class="submit-btn">Daftar Sekarang</button>
-      <div class="form-success" id="mfSuccess">Pendaftaranmu berhasil dikirim! Bawa kartu identitas saat mengambil kartu anggota di meja layanan.</div>
+      <div class="form-success" id="mfSuccess">Pendaftaran dikirim! Sila ambil kartu di meja layanan.</div>
     </form>
   </div>
 </section>
 
+<section id="admin-panel" style="background: var(--paper-dim); border-top: 1px solid var(--paper-line);">
+  <div class="wrap">
+    <span class="eyebrow">Panel Manajemen Konten</span>
+    <h2 style="margin-bottom:24px;">Tambah Data Buku ke Firebase</h2>
+    
+    <form class="form-card" id="adminBookForm" style="max-width:none;">
+      <div class="field-row">
+        <div class="field">
+          <label for="admin-ddc">Kelompok Utama Rak (DDC)</label>
+          <select id="admin-ddc" required>
+            <option value="000">000 - Karya Umum</option>
+            <option value="100">100 - Filsafat &amp; Psikologi</option>
+            <option value="200">200 - Agama</option>
+            <option value="300">300 - Ilmu Sosial</option>
+            <option value="400">400 - Bahasa</option>
+            <option value="500">500 - Sains Murni</option>
+            <option value="600">600 - Teknologi</option>
+            <option value="700">700 - Seni &amp; Rekreasi</option>
+            <option value="800">800 - Sastra</option>
+            <option value="900">900 - Sejarah &amp; Geografi</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="admin-spesifik">Kode DDC Spesifik</label>
+          <input type="text" id="admin-spesifik" placeholder="Misal: 813 atau 020" required>
+        </div>
+      </div>
+      
+      <div class="field-row">
+        <div class="field">
+          <label for="admin-judul">Judul Buku</label>
+          <input type="text" id="admin-judul" placeholder="Masukkan judul buku" required>
+        </div>
+        <div class="field">
+          <label for="admin-penulis">Nama Penulis</label>
+          <input type="text" id="admin-penulis" placeholder="Nama pengarang" required>
+        </div>
+      </div>
+      
+      <div class="field">
+        <label for="admin-deskripsi">Deskripsi Buku</label>
+        <textarea id="admin-deskripsi" rows="3" placeholder="Sinopsis singkat atau info nomor rak detail" required></textarea>
+      </div>
+      
+      <div class="field">
+        <label for="admin-status">Status Ketersediaan</label>
+        <select id="admin-status">
+          <option value="Tersedia">Tersedia</option>
+          <option value="Dipinjam">Dipinjam</option>
+        </select>
+      </div>
+      
+      <button type="submit" class="submit-btn" style="background: var(--ink);">Simpan Koleksi</button>
+      <div class="form-success" id="adminSuccess">Sukses! Buku tersimpan di Cloud Firebase.</div>
+    </form>
+  </div>
+</section>
 
 <footer>
   <div class="wrap">
@@ -919,66 +670,58 @@ section[id]{ scroll-margin-top: 88px; }
           <img src="logo lentera transparan.jpg" alt="Logo Perpus SKL" class="main-logo">
           Perpus SKL
         </a>
-        <p class="tag">Perpustakaan umum kota yang terbuka untuk siapa saja yang ingin membaca, belajar, dan berkumpul.</p>
-      </div>
-      <div>
-        <h5>Jelajahi</h5>
-        <ul>
-          <li><a href="#koleksi">Koleksi</a></li>
-          <li><a href="#layanan">Layanan</a></li>
-          <li><a href="#acara">Acara</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Informasi</h5>
-        <ul>
-          <li><a href="#tentang">Tentang Kami</a></li>
-          <li><a href="#kontak">Jam &amp; Lokasi</a></li>
-          <li><a href="#keanggotaan">Keanggotaan</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Hubungi</h5>
-        <ul>
-          <li><a href="tel:+62241234567">(024) 123‑4567</a></li>
-          <li><a href="mailto:halo@perpusskl.id">halo@perpusskl.id</a></li>
-        </ul>
+        <p class="tag">Perpustakaan umum kota berbasis web dinamis.</p>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Perpus SKL. Seluruh hak cipta dilindungi.</span>
-      <span>Dibuat untuk kota yang gemar membaca.</span>
     </div>
   </div>
 </footer>
 
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+
 <script>
-  // Nav scroll state
+  // ==========================================
+  // PENTING: GANTI DENGAN KONFIGURASI FIREBASE ANDA
+  // ==========================================
+  const firebaseConfig = {
+    apiKey: "SELAIN_INI_PASTE_API_KEY_KAMU",
+    authDomain: "PROJECT_KAMU.firebaseapp.com",
+    databaseURL: "https://PROJECT_KAMU-default-rtdb.firebaseio.com",
+    projectId: "PROJECT_KAMU",
+    storageBucket: "PROJECT_KAMU.appspot.com",
+    messagingSenderId: "SENDER_ID_KAMU",
+    appId: "APP_ID_KAMU"
+  };
+
+  // Inisialisasi Firebase
+  firebase.initializeApp(firebaseConfig);
+  const database = firebase.database();
+
+  // Handle Sticky Header Navbar
   const header = document.getElementById('siteHeader');
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 40);
   });
 
-  // Mobile menu toggle
+  // Mobile Menu
   const menuToggle = document.getElementById('menuToggle');
   const mobileMenu = document.getElementById('mobileMenu');
   menuToggle.addEventListener('click', () => {
     const isOpen = mobileMenu.style.display === 'flex';
     mobileMenu.style.display = isOpen ? 'none' : 'flex';
-    menuToggle.setAttribute('aria-expanded', String(!isOpen));
-  });
-  document.querySelectorAll('#mobileMenu a').forEach(a => {
-    a.addEventListener('click', () => { mobileMenu.style.display = 'none'; menuToggle.setAttribute('aria-expanded', 'false'); });
   });
 
-  // Scroll reveal
+  // Animasi Reveal Bawaan
   const revealEls = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
   }, { threshold: 0.12 });
   revealEls.forEach(el => io.observe(el));
 
-  // Shelf hover/focus info panel
+  // Info Banner Rak Buku
   const spines = document.querySelectorAll('.spine');
   const shelfInfo = document.getElementById('shelfInfo');
   spines.forEach(sp => {
@@ -989,56 +732,115 @@ section[id]{ scroll-margin-top: 88px; }
     sp.addEventListener('focus', show);
   });
 
-  // Search: filters book cards + dims non-matching spines, then jumps to Koleksi
+  // 1. PROSES SIMPAN DATA DARI FORM ADMIN KE FIREBASE
+  const adminForm = document.getElementById('adminBookForm');
+  adminForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const ddcKelompok = document.getElementById('admin-ddc').value;
+    const ddcSpesifik = document.getElementById('admin-spesifik').value;
+    const judul = document.getElementById('admin-judul').value;
+    const penulis = document.getElementById('admin-penulis').value;
+    const deskripsi = document.getElementById('admin-deskripsi').value;
+    const status = document.getElementById('admin-status').value;
+
+    // Push id unik di path: buku/kelompokDDC
+    const bookRef = database.ref('buku/' + ddcKelompok).push();
+    
+    bookRef.set({
+      ddc: ddcSpesifik,
+      judul: judul,
+      penulis: penulis,
+      deskripsi: deskripsi,
+      status: status
+    }).then(() => {
+      document.getElementById('adminSuccess').classList.add('show');
+      adminForm.reset();
+      setTimeout(() => { document.getElementById('adminSuccess').classList.remove('show'); }, 3000);
+    }).catch(err => {
+      alert("Error Simpan: " + err.message);
+    });
+  });
+
+  // 2. AMBIL DATA REALTIME DARI FIREBASE DAN TAMPILKAN KE HALAMAN USER
+  database.ref('buku').on('value', (snapshot) => {
+    const data = snapshot.val();
+    
+    // Reset isi semua grid
+    document.querySelectorAll('.book-grid').forEach(grid => grid.innerHTML = '');
+
+    if (data) {
+      Object.keys(data).forEach(kelompok => {
+        const targetGrid = document.querySelector(`#cat-${kelompok} .book-grid`);
+        if (targetGrid) {
+          Object.keys(data[kelompok]).forEach(bookId => {
+            const buku = data[kelompok][bookId];
+            const statusClass = buku.status.toLowerCase() === 'dipinjam' ? 'out' : '';
+            
+            const cardHTML = `
+              <div class="book-card">
+                <span class="bc-code">${buku.ddc}</span>
+                <h3>${buku.judul}</h3>
+                <p class="bc-author">${buku.penulis}</p>
+                <p>${buku.deskripsi}</p>
+                <span class="bc-status ${statusClass}">${buku.status}</span>
+              </div>
+            `;
+            targetGrid.insertAdjacentHTML('beforeend', cardHTML);
+          });
+        }
+      });
+    }
+    
+    // Jalankan ulang fungsi pencarian lokal agar buku baru ikut terfilter jika sedang melakukan pencarian
+    runSearch(document.getElementById('searchInput').value);
+  });
+
+  // 3. LOGIKA PENCARIAN & FILTERING BUKU
   const searchForm = document.getElementById('catalogSearch');
   const searchInput = document.getElementById('searchInput');
+
   function runSearch(q){
     q = q.trim().toLowerCase();
     const cards = document.querySelectorAll('.book-card');
     let firstMatch = null;
+    
     cards.forEach(c => {
-      const hay = c.textContent.toLowerCase();
-      const match = q === '' || hay.includes(q);
+      const text = c.textContent.toLowerCase();
+      const match = q === '' || text.includes(q);
       c.style.display = match ? '' : 'none';
       if (match && !firstMatch && q !== '') firstMatch = c;
     });
+
     document.querySelectorAll('.category-block').forEach(block => {
       const visible = [...block.querySelectorAll('.book-card')].some(c => c.style.display !== 'none');
       block.style.display = (q === '' || visible) ? '' : 'none';
     });
+
     spines.forEach(sp => {
       const hay = (sp.dataset.code + ' ' + sp.dataset.label + ' ' + sp.dataset.desc).toLowerCase();
       sp.classList.toggle('dim', q !== '' && !hay.includes(q));
     });
-    document.getElementById('koleksi').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
     if (q !== '') {
       shelfInfo.innerHTML = firstMatch
-        ? `<span>Menampilkan hasil untuk “${searchInput.value}”.</span>`
-        : `<span>Tidak ada judul yang cocok dengan “${searchInput.value}” — coba kata lain.</span>`;
+        ? `<span>Menampilkan hasil pencarian untuk “${searchInput.value}”.</span>`
+        : `<span>Tidak ditemukan buku dengan kata kunci “${searchInput.value}”.</span>`;
     }
   }
-  searchForm.addEventListener('submit', (e) => { e.preventDefault(); runSearch(searchInput.value); });
 
-  // Contact form
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      document.getElementById('cfSuccess').classList.add('show');
-      e.target.reset();
-    });
-  }
+  searchForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    runSearch(searchInput.value);
+    document.getElementById('koleksi').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
 
-  // Membership form
-  const memberForm = document.getElementById('memberForm');
-  if (memberForm) {
-    memberForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      document.getElementById('mfSuccess').classList.add('show');
-      e.target.reset();
-    });
-  }
+  // Form Keanggotaan Dummy Response
+  document.getElementById('memberForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    document.getElementById('mfSuccess').classList.add('show');
+    e.target.reset();
+  });
 </script>
-
 </body>
 </html>
