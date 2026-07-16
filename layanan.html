@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Layanan — Pustaka Nusa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;0,9..144,700;1,9..144,450&family=Newsreader:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site scrolled" id="siteHeader">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand"><span class="mark">PN</span>Pustaka Nusa</a>
+    <nav class="links">
+      <a href="koleksi.html">Koleksi</a>
+      <a href="layanan.html">Layanan</a>
+      <a href="index.html#tentang">Tentang</a>
+      <a href="acara.html">Acara</a>
+      <a href="kontak.html">Jam &amp; Lokasi</a>
+    </nav>
+    <a href="keanggotaan.html" class="nav-cta">Jadi Anggota</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false">☰</button>
+  </div>
+  <nav class="links" id="mobileMenu" style="display:none; flex-direction:column; gap:0; background:var(--ink); position:absolute; top:100%; left:0; right:0; padding:8px 32px 20px;">
+    <a href="koleksi.html" style="padding:12px 0; border-top:1px solid rgba(237,230,214,0.1);">Koleksi</a>
+    <a href="layanan.html" style="padding:12px 0; border-top:1px solid rgba(237,230,214,0.1);">Layanan</a>
+    <a href="index.html#tentang" style="padding:12px 0; border-top:1px solid rgba(237,230,214,0.1);">Tentang</a>
+    <a href="acara.html" style="padding:12px 0; border-top:1px solid rgba(237,230,214,0.1);">Acara</a>
+    <a href="kontak.html" style="padding:12px 0; border-top:1px solid rgba(237,230,214,0.1);">Jam &amp; Lokasi</a>
+    <a href="keanggotaan.html" style="padding:12px 0; border-top:1px solid rgba(237,230,214,0.1); color:var(--brass-light);">Jadi Anggota</a>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Beranda</a><span>/</span><span>Layanan</span></div>
+    <h1>Layanan Perpustakaan</h1>
+    <p class="lede">Empat layanan inti yang tersedia setiap hari operasional — semuanya gratis bagi pemegang kartu anggota.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+
+    <div class="service-detail" id="layanan-1">
+      <div class="sd-num">01</div>
+      <div>
+        <h2>Peminjaman Mandiri</h2>
+        <p>Pindai kartu anggotamu di mesin layanan mandiri dan bawa pulang hingga 5 judul sekaligus. Tidak perlu antre ke meja petugas untuk peminjaman rutin.</p>
+        <ul class="sd-list">
+          <li>Maksimal 5 judul per kunjungan</li>
+          <li>Masa pinjam 14 hari, bisa diperpanjang 1 kali lewat aplikasi</li>
+          <li>Mesin tersedia di lantai 1, dekat pintu masuk</li>
+        </ul>
+        <a href="keanggotaan.html" class="link-btn">Belum punya kartu anggota? Daftar di sini →</a>
+      </div>
+    </div>
+
+    <div class="service-detail" id="layanan-2">
+      <div class="sd-num">02</div>
+      <div>
+        <h2>Ruang Baca Tenang</h2>
+        <p>Area baca dengan cahaya alami di lantai 2, dirancang untuk membaca dan belajar tanpa gangguan. Kursi tersedia tanpa reservasi, kecuali saat musim ujian.</p>
+        <ul class="sd-list">
+          <li>60 kursi baca individual</li>
+          <li>Zona bebas suara — panggilan telepon dimohon di lobi</li>
+          <li>Buka mengikuti jam operasional perpustakaan</li>
+        </ul>
+        <a href="kontak.html" class="link-btn">Cek jam operasional →</a>
+      </div>
+    </div>
+
+    <div class="service-detail" id="layanan-3">
+      <div class="sd-num">03</div>
+      <div>
+        <h2>Perpustakaan Digital</h2>
+        <p>Akses ribuan e-book dan jurnal dari rumah menggunakan nomor anggotamu. Cocok untuk pelajar dan pekerja yang sulit datang langsung.</p>
+        <ul class="sd-list">
+          <li>Tersedia di web dan aplikasi mobile</li>
+          <li>Bisa dibaca di maksimal 2 perangkat sekaligus</li>
+          <li>Koleksi diperbarui setiap bulan</li>
+        </ul>
+        <a href="koleksi.html" class="link-btn">Jelajahi koleksi →</a>
+      </div>
+    </div>
+
+    <div class="service-detail" id="layanan-4">
+      <div class="sd-num">04</div>
+      <div>
+        <h2>Ruang Diskusi</h2>
+        <p>Empat ruang kecil berkapasitas 4–6 orang untuk belajar kelompok, rapat komunitas, atau latihan presentasi.</p>
+        <ul class="sd-list">
+          <li>Pemesanan lewat meja layanan, maksimal 2 jam per sesi</li>
+          <li>Dilengkapi papan tulis dan layar kecil</li>
+          <li>Gratis untuk anggota aktif</li>
+        </ul>
+        <a href="kontak.html" class="link-btn">Hubungi meja layanan →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="brand"><span class="mark">PN</span>Pustaka Nusa</a>
+        <p class="tag">Perpustakaan umum kota yang terbuka untuk siapa saja yang ingin membaca, belajar, dan berkumpul.</p>
+      </div>
+      <div>
+        <h5>Jelajahi</h5>
+        <ul>
+          <li><a href="koleksi.html">Koleksi</a></li>
+          <li><a href="layanan.html">Layanan</a></li>
+          <li><a href="acara.html">Acara</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Informasi</h5>
+        <ul>
+          <li><a href="index.html#tentang">Tentang Kami</a></li>
+          <li><a href="kontak.html">Jam &amp; Lokasi</a></li>
+          <li><a href="keanggotaan.html">Keanggotaan</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Hubungi</h5>
+        <ul>
+          <li><a href="tel:+62241234567">(024) 123‑4567</a></li>
+          <li><a href="mailto:halo@pustakanusa.id">halo@pustakanusa.id</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Pustaka Nusa. Seluruh hak cipta dilindungi.</span>
+      <span>Dibuat untuk kota yang gemar membaca.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuToggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.style.display === 'flex';
+    mobileMenu.style.display = isOpen ? 'none' : 'flex';
+    menuToggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+</script>
+
+</body>
+</html>
