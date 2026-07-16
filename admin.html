@@ -26,7 +26,6 @@
   .form-success.show { display: block; }
   .error-msg { color: #8B3A3A; font-size: 0.85rem; margin-top: 5px; display: none; }
   
-  /* Sembunyikan panel admin sebelum login */
   #login-area { display: block; }
   #admin-area { display: none; }
 </style>
@@ -44,7 +43,7 @@
       <div class="field">
         <label for="login-password">Password</label>
         <input type="password" id="login-password" required placeholder="••••••••">
-        <div class="error-msg" id="login-error">Email atau password salah.</div>
+        <div class="error-msg" id="login-error">Email atau password salah / periksa koneksi.</div>
       </div>
       <button type="submit" class="submit-btn">Masuk Ke Panel</button>
     </form>
@@ -112,7 +111,6 @@
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
 <script>
-  // Konfigurasi Firebase Anda
   const firebaseConfig = {
     apiKey: "AIzaSyBMToZ28pOnV9NExInl6by0u8Zjs_ZROvo",
     authDomain: "web2-9c866.firebaseapp.com",
@@ -123,7 +121,6 @@
     measurementId: "G-T4RBF95LMF"
   };
 
-  // Inisialisasi Firebase menggunakan metode yang benar (Compat Mode)
   firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
   const database = firebase.database();
@@ -133,7 +130,6 @@
   const loginForm = document.getElementById('loginForm');
   const loginError = document.getElementById('login-error');
 
-  // Cek Status Login Otomatis
   auth.onAuthStateChanged(user => {
     if (user) {
       loginArea.style.display = 'none';
@@ -144,7 +140,6 @@
     }
   });
 
-  // Proses Login
   loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
     loginError.style.display = 'none';
@@ -157,12 +152,10 @@
     });
   });
 
-  // Proses Logout
   document.getElementById('logoutBtn').addEventListener('click', () => {
     auth.signOut();
   });
 
-  // Proses Simpan Data Buku
   const adminForm = document.getElementById('adminBookForm');
   adminForm.addEventListener('submit', (e) => {
     e.preventDefault();

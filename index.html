@@ -979,32 +979,13 @@ section[id]{ scroll-margin-top: 88px; }
   }
   searchForm.addEventListener('submit', (e) => { e.preventDefault(); runSearch(searchInput.value); });
 
-  // Contact form
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      document.getElementById('cfSuccess').classList.add('show');
-      e.target.reset();
-    });
-  }
 
-  // Membership form
-  const memberForm = document.getElementById('memberForm');
-  if (memberForm) {
-    memberForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      document.getElementById('mfSuccess').classList.add('show');
-      e.target.reset();
-    });
-  }
 </script>
 
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
 <script>
-  // Konfigurasi Firebase Anda
   const firebaseConfig = {
     apiKey: "AIzaSyBMToZ28pOnV9NExInl6by0u8Zjs_ZROvo",
     authDomain: "web2-9c866.firebaseapp.com",
@@ -1015,7 +996,6 @@ section[id]{ scroll-margin-top: 88px; }
     measurementId: "G-T4RBF95LMF"
   };
 
-  // Inisialisasi Firebase yang benar
   firebase.initializeApp(firebaseConfig);
   const database = firebase.database();
 
@@ -1046,7 +1026,77 @@ section[id]{ scroll-margin-top: 88px; }
         }
       });
     }
+    
+    // PERBAIKAN: Inisialisasi ulang pencarian setelah buku-buku dari Firebase selesai masuk ke HTML
+    initSearchLogic();
   });
+
+  function initSearchLogic() {
+    const searchForm = document.getElementById('searchForm');
+    const searchInput = document.getElementById('searchInput');
+    const shelfInfo = document.getElementById('shelfInfo');
+    const spines = document.querySelectorAll('.spine-book');
+    const cards = document.querySelectorAll('.book-card');
+
+    function runSearch(q) {
+      q = q.trim().toLowerCase();
+      let firstMatch = null;
+      
+      cards.forEach(c => {
+        const text = c.textContent.toLowerCase();
+        const match = q === '' || text.includes(q);
+        c.style.display = match ? '' : 'none';
+        if (match && !firstMatch && q !== '') firstMatch = c;
+      });
+      
+      document.querySelectorAll('.category-block').forEach(block => {
+        const visible = [...block.querySelectorAll('.book-card')].some(c => c.style.display !== 'none');
+        block.style.display = (q === '' || visible) ? '' : 'none';
+      });
+      
+      spines.forEach(sp => {
+        const hay = (sp.dataset.code + ' ' + sp.dataset.label + ' ' + sp.dataset.desc).toLowerCase();
+        sp.classList.toggle('dim', q !== '' && !hay.includes(q));
+      });
+      
+      document.getElementById('koleksi').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      
+      if (q !== '') {
+        shelfInfo.innerHTML = firstMatch
+          ? `<span>Menampilkan hasil untuk “${searchInput.value}”.</span>`
+          : `<span>Tidak ada judul yang cocok dengan “${searchInput.value}” — coba kata lain.</span>`;
+      } else {
+        shelfInfo.innerHTML = '';
+      }
+    }
+
+    // Hindari penumpukan event listener
+    searchForm.replaceWith(searchForm.cloneNode(true));
+    document.getElementById('searchForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      runSearch(document.getElementById('searchInput').value);
+    });
+  }
+
+  // Form Kontak bawaan template
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.getElementById('cfSuccess').classList.add('show');
+      e.target.reset();
+    });
+  }
+
+  // Form Anggota bawaan template
+  const memberForm = document.getElementById('memberForm');
+  if (memberForm) {
+    memberForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.getElementById('mfSuccess').classList.add('show');
+      e.target.reset();
+    });
+  }
 </script>
 </body>
 </html>
